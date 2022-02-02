@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1rem;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      h1,
+      footer {
+        display: flex;
+        place-content: center;
+      }
+
+      article {
+        margin: 1px;
+        border: solid 1px black;
+      }
+
+      footer {
+        border: solid 1px black;
+      }
+      article:nth-child(1) {
+        color: blue;
+      }
+      article:nth-child(2) {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Titel</h1>
+      <hr />
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article>
+          <img src="https://placeimg.com/640/480/arch" alt="Billede 1" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+            facere tempora nostrum iste explicabo ducimus sint ea? Non incidunt,
+            officiis, consectetur accusamus quas commodi eligendi, possimus
+            accusantium nemo quos unde!
+          </p>
+        </article>
+        <article>
+          <img src="https://placeimg.com/640/480/nature" alt="Billede 2" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+            facere tempora nostrum iste explicabo ducimus sint ea? Non incidunt,
+            officiis, consectetur accusamus quas commodi eligendi, possimus
+            accusantium nemo quos unde!
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>This is the footer</footer>
+    <script>
+      /*eventlistenr på om DOm er indlæst der henviser til
+    Function med JS der begynder efter DOM er loaded*/
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        //Artiklerne deffineret
+        const artikel1 = document.querySelector("article:nth-child(1)");
+        console.log(artikel1);
+        const artikel2 = document.querySelector("article:nth-child(2)");
+        console.log(artikel2);
+        //Artiklernes billeder deffineret
+        const artikel1Pic = document.querySelector("article:nth-child(1) img");
+        console.log(artikel1Pic);
+        const artikel2Pic = document.querySelector("article:nth-child(2) img");
+        console.log(artikel2Pic);
+        //
+        //
+        //
+        //
+        //
+        //Billede skifter ved klik på BILLEDE 1
+        let tal = Math.round(Math.random() * 20);
+        document
+          .querySelector("article:nth-child(1)")
+          .addEventListener("click", skift);
+        console.log(skift);
+        function skift() {
+          artikel1Pic.src = "https://placeimg.com/400/300/arch?t=" + tal;
+        }
+        //
+        //
+        //
+        //
+
+        //Skifter billede og kategori ved klik på BILLEDE 2
+        //kategorier deffineret
+        const kategorier = ["animals", "arch", "people", "nature", "tech"];
+        //Tilføjer klik-event og henviser til funktionen
+        document
+          .querySelector("article:nth-child(2)")
+          .addEventListener("click", skift2);
+        console.log(skift2);
+        function skift2() {
+          const billedTal = Math.round(Math.random() * 10);
+          const kategoriIndex = Math.round(Math.random() * 4);
+          artikel2Pic.src =
+            "https://placeimg.com/600/400/" +
+            kategorier[kategoriIndex] +
+            "?t=" +
+            billedTal;
+          artikel2Pic.alt = kategorier[kategoriIndex] + " nr " + billedTal;
+          cap.textContent = kategorier[kategoriIndex] + " nr " + billedTal;
+        }
+      }
+    </script>
+  </body>
+</html>
