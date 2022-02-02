@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1rem;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      h1,
+      footer {
+        display: flex;
+        place-content: center;
+      }
+
+      article {
+        margin: 1px;
+        border: solid 1px black;
+      }
+
+      footer {
+        border: solid 1px black;
+      }
+      article:nth-child(1) {
+        color: blue;
+      }
+      article:nth-child(2) {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Titel</h1>
+      <hr />
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article>
+          <img src="https://placeimg.com/640/480/arch" alt="Billede 1" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+            facere tempora nostrum iste explicabo ducimus sint ea? Non incidunt,
+            officiis, consectetur accusamus quas commodi eligendi, possimus
+            accusantium nemo quos unde!
+          </p>
+        </article>
+        <article>
+          <img src="https://placeimg.com/640/480/nature" alt="Billede 2" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+            facere tempora nostrum iste explicabo ducimus sint ea? Non incidunt,
+            officiis, consectetur accusamus quas commodi eligendi, possimus
+            accusantium nemo quos unde!
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>This is the footer</footer>
+    <script>
+      const overskrift = document.querySelector("header h1");
+      overskrift.textContent;
+      console.log(overskrift);
+
+      const underoverskrift = document.querySelector("main h2");
+      overskrift.textContent;
+      console.log(underoverskrift);
+
+      const artikel1h3 = document.querySelector("article:nth-child(1) h3");
+      console.log(artikel1h3);
+      const artikel2h3 = document.querySelector("article:nth-child(2) h3");
+      console.log(artikel2h3);
+
+      const artikel1P = document.querySelector("article:nth-child(1) p");
+      console.log(artikel1P);
+      const artikel2P = document.querySelector("article:nth-child(2) p");
+      console.log(artikel2P);
+
+      const artikel1 = document.querySelector("article:nth-child(1)");
+      console.log(artikel1);
+      const artikel2 = document.querySelector("article:nth-child(2)");
+      console.log(artikel2);
+
+      const artikel1Pic = document.querySelector("article:nth-child(1) img");
+      console.log(artikel1Pic);
+      const artikel2Pic = document.querySelector("article:nth-child(2) img");
+      console.log(artikel2Pic);
+
+      const tekstfoot = document.querySelector("footer");
+      overskrift.textContent;
+      console.log(tekstfoot);
+
+      //Billede skifter ved klik
+      let tal;
+      tal = math.floor(math.random() * 10) + 1;
+
+      artikel1Pic.addEventListener("click", skift);
+      console.log(skift);
+      function skift() {
+        img.src = "https://placeimg.com/400/300/arch?t=" + tal;
+      }
+
+      artikel1Pic.src = "https://placeimg.com/640/480/animals/grayscale";
+
+      //Deffinerer ny artikel og nye elementer
+      let mainSection = document.querySelector("section");
+      //Ny artikel
+      let artikel3 = document.createElement("artikel3");
+      //Nyt h# element
+      let overskrift3 = document.createElement("h3");
+      //Tekst til overskrift
+      let overskriftText = document.createTextNode("Artikel 3");
+      //Ny paragraf
+      let tekst3 = document.createElement("p");
+      //tekst til paragraf
+      let tekst3Text = document.createTextNode("Artikel 3 tekst");
+      //Nyt billede
+      let billede = document.createElement("img");
+
+      /*eventlistenr på om DOm er indlæst der henviser til
+            Function med JS der begynder efter DOM er loaded*/
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        mainSection.appendChild(artikel3);
+        billede.src = "https://placeimg.com/640/480/animals/grayscale";
+        //Indsætter det nye indhold med appendChild
+        //Nyt billede
+        artikel3.appendChild(billede);
+        //Ny overskrift
+        artikel3.appendChild(overskrift3);
+        overskrift3.appendChild(overskriftText);
+        //Ny tekst/p
+        artikel3.appendChild(tekst3);
+        tekst3.appendChild(tekst3Text);
+      }
+    </script>
+  </body>
+</html>
