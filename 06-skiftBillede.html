@@ -112,13 +112,13 @@
       console.log(tekstfoot);
 
       //Billede skifter ved klik
-      let tal;
-      tal = math.floor(math.random() * 10) + 1;
-
-      artikel1Pic.addEventListener("click", skift);
+      let tal = Math.round(Math.random() * 20);
+      document
+        .querySelector("article:nth-child(1)")
+        .addEventListener("click", skift);
       console.log(skift);
       function skift() {
-        img.src = "https://placeimg.com/400/300/arch?t=" + tal;
+        artikel1Pic.src = "https://placeimg.com/400/300/arch?t=" + tal;
       }
 
       artikel1Pic.src = "https://placeimg.com/640/480/animals/grayscale";
